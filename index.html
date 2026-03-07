@@ -6,151 +6,106 @@
     <title>Ordinal</title>
     <meta name="description" content="Next-generation semiconductor IP for high-speed communications.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Karla:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Libre+Franklin:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #eae4d6;
-            --surface: #e2dccb;
-            --text: #1c1810;
-            --dim: #7a7060;
-            --border: #c4bba8;
-            --copper: #8a5a30;
-            --copper-light: rgba(138,90,48,0.08);
-            --serif: 'Lora', Georgia, serif;
-            --sans: 'Karla', sans-serif;
+            --bg: #f4f0e6;
+            --text: #2a2016;
+            --dim: #8c8070;
+            --border: #d4cfc0;
+            --accent: #5c2e1a;
+            --serif: 'Crimson Pro', Georgia, serif;
+            --sans: 'Libre Franklin', sans-serif;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { background: var(--bg); color: var(--text); font-family: var(--sans); min-height: 100vh; -webkit-font-smoothing: antialiased; }
 
-        /* Linen texture */
-        body::before {
-            content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 100;
-            background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
-        }
+        .page { max-width: 620px; margin: 0 auto; padding: 4rem 2.5rem; min-height: 100vh; display: flex; flex-direction: column; }
 
-        .page { max-width: 660px; margin: 0 auto; padding: 3.5rem 2.5rem; min-height: 100vh; display: flex; flex-direction: column; }
+        header { margin-bottom: 8vh; display: flex; justify-content: space-between; align-items: baseline; }
+        .wordmark { font-family: var(--serif); font-size: 1.25rem; font-weight: 600; letter-spacing: 0.02em; color: var(--text); }
+        .header-right a { font-size: 0.6875rem; font-weight: 400; color: var(--dim); text-decoration: none; letter-spacing: 0.02em; transition: color 0.3s; }
+        .header-right a:hover { color: var(--accent); }
 
-        nav {
-            display: flex; justify-content: space-between; align-items: center;
-            padding-bottom: 1.5rem; border-bottom: 2px solid var(--text);
-            margin-bottom: 5rem;
+        .hero { margin-bottom: 3rem; }
+        .hero-eyebrow {
+            font-size: 0.625rem; font-weight: 500; letter-spacing: 0.2em;
+            text-transform: uppercase; color: var(--dim); margin-bottom: 1.25rem;
         }
-        .nav-logo {
-            font-family: var(--serif); font-size: 1.125rem; font-weight: 600;
-            letter-spacing: 0.06em;
-        }
-        .nav-right { display: flex; gap: 1.5rem; align-items: baseline; }
-        .nav-tag { font-size: 0.5625rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.15em; color: var(--dim); }
-        .nav-right a {
-            font-size: 0.6875rem; font-weight: 400; color: var(--copper);
-            text-decoration: none; border-bottom: 1px solid var(--copper);
-            padding-bottom: 1px; transition: opacity 0.3s;
-        }
-        .nav-right a:hover { opacity: 0.6; }
-
-        .hero { margin-bottom: 3.5rem; }
         .hero h1 {
-            font-family: var(--serif); font-size: clamp(2rem, 5vw, 3rem);
-            font-weight: 400; line-height: 1.3; color: var(--text);
+            font-family: var(--serif); font-size: clamp(1.875rem, 4.5vw, 2.75rem);
+            font-weight: 300; line-height: 1.35; color: var(--text);
         }
-        .hero h1 em { font-style: italic; color: var(--copper); }
+        .hero h1 em { font-style: italic; color: var(--accent); }
 
-        .ornament {
-            display: flex; align-items: center; gap: 1rem; margin-bottom: 2.5rem;
-        }
-        .orn-line { flex: 1; height: 1px; background: var(--border); }
-        .orn-diamond { width: 6px; height: 6px; background: var(--copper); transform: rotate(45deg); flex-shrink: 0; }
+        .rule { height: 1px; background: var(--border); margin: 0 0 2.5rem; }
 
-        .body-text { margin-bottom: 3rem; }
+        .body-text { margin-bottom: 2.5rem; }
         .body-text p {
-            font-family: var(--serif); font-size: 0.9375rem; font-weight: 400;
-            line-height: 1.85; color: #44392c; margin-bottom: 1rem;
+            font-family: var(--serif); font-size: 1rem; font-weight: 300;
+            line-height: 1.85; color: #4a3f32; margin-bottom: 1rem;
         }
 
-        .domains-card {
-            background: var(--surface); border: 1px solid var(--border);
-            padding: 1.75rem 2rem; margin-bottom: 2.5rem;
+        .domains {
+            display: flex; justify-content: space-between; flex-wrap: wrap;
+            padding: 1.5rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+            margin-bottom: 2.5rem; gap: 1rem;
         }
-        .dc-label {
-            font-size: 0.5625rem; font-weight: 700; text-transform: uppercase;
-            letter-spacing: 0.18em; color: var(--dim); margin-bottom: 1.25rem;
-        }
-        .dc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem 3rem; }
-        .dc-item {}
-        .dc-name { font-family: var(--serif); font-size: 1rem; font-weight: 500; color: var(--text); }
-        .dc-sub { font-size: 0.6875rem; font-weight: 300; color: var(--dim); margin-top: 0.1rem; }
+        .dom-item { text-align: center; flex: 1; min-width: 100px; }
+        .dom-name { font-family: var(--serif); font-size: 1.0625rem; font-weight: 400; color: var(--text); }
+        .dom-sub { font-size: 0.625rem; font-weight: 300; color: var(--dim); margin-top: 0.1rem; letter-spacing: 0.04em; }
 
-        .nda-row {
-            display: flex; align-items: flex-start; gap: 1rem;
-            padding: 1.25rem 1.5rem; background: var(--copper-light);
-            border-left: 3px solid var(--copper); margin-bottom: 3rem;
-        }
-        .nda-row p {
-            font-family: var(--serif); font-size: 0.875rem; font-weight: 400;
-            font-style: italic; color: var(--dim); line-height: 1.6;
+        .nda {
+            font-family: var(--serif); font-size: 0.9375rem; font-weight: 300;
+            font-style: italic; color: var(--dim); padding-left: 1.25rem;
+            border-left: 2px solid var(--accent); margin-bottom: 3.5rem;
+            line-height: 1.6;
         }
 
         .contact { margin-bottom: 4rem; }
         .contact-label {
-            font-size: 0.5625rem; font-weight: 700; text-transform: uppercase;
-            letter-spacing: 0.18em; color: var(--dim); margin-bottom: 0.5rem;
+            font-size: 0.625rem; font-weight: 500; letter-spacing: 0.2em;
+            text-transform: uppercase; color: var(--dim); margin-bottom: 0.5rem;
         }
         .contact a {
-            font-family: var(--serif); font-size: 1.25rem; font-weight: 400;
-            color: var(--copper); text-decoration: none; transition: opacity 0.3s;
+            font-family: var(--serif); font-size: 1.125rem; font-weight: 400;
+            color: var(--accent); text-decoration: none;
         }
-        .contact a:hover { opacity: 0.6; }
+        .contact a:hover { text-decoration: underline; }
 
-        footer {
-            margin-top: auto; padding-top: 1.25rem; border-top: 2px solid var(--text);
-        }
+        footer { margin-top: auto; padding-top: 1.25rem; border-top: 1px solid var(--border); }
         .legal { font-size: 0.625rem; font-weight: 300; color: var(--dim); line-height: 1.8; }
 
-        @media (max-width: 480px) {
-            .page { padding: 2rem 1.5rem; }
-            .dc-grid { grid-template-columns: 1fr; }
-            .nav-tag { display: none; }
-        }
+        @media (max-width: 480px) { .page { padding: 2.5rem 1.5rem; } }
     </style>
 </head>
 <body>
 <div class="page">
-    <nav>
-        <div class="nav-logo">Ordinal</div>
-        <div class="nav-right">
-            <span class="nav-tag">Semiconductor IP</span>
-            <a href="mailto:info@ordinal.science">Contact</a>
-        </div>
-    </nav>
+    <header>
+        <div class="wordmark">Ordinal</div>
+        <div class="header-right"><a href="mailto:info@ordinal.science">Contact</a></div>
+    </header>
 
     <section class="hero">
+        <div class="hero-eyebrow">Semiconductor IP</div>
         <h1>Next-generation modulation architectures for <em>high-speed communications</em></h1>
     </section>
 
-    <div class="ornament">
-        <div class="orn-line"></div>
-        <div class="orn-diamond"></div>
-        <div class="orn-line"></div>
-    </div>
+    <div class="rule"></div>
 
     <div class="body-text">
         <p>Ordinal is a UK-based semiconductor IP company developing novel modulation architectures for wired, wireless, and optical communication systems.</p>
         <p>Our technology encodes information using structural properties of signals rather than absolute amplitudes — enabling fundamental improvements in energy efficiency, latency, and robustness across multiple physical domains.</p>
     </div>
 
-    <div class="domains-card">
-        <div class="dc-label">Application Domains</div>
-        <div class="dc-grid">
-            <div class="dc-item"><div class="dc-name">SerDes</div><div class="dc-sub">Wired interconnect</div></div>
-            <div class="dc-item"><div class="dc-name">IoT</div><div class="dc-sub">Low-power wireless</div></div>
-            <div class="dc-item"><div class="dc-name">Wireless</div><div class="dc-sub">RF systems</div></div>
-            <div class="dc-item"><div class="dc-name">Optical</div><div class="dc-sub">Photonic links</div></div>
-        </div>
+    <div class="domains">
+        <div class="dom-item"><div class="dom-name">SerDes</div><div class="dom-sub">Wired interconnect</div></div>
+        <div class="dom-item"><div class="dom-name">IoT</div><div class="dom-sub">Low-power wireless</div></div>
+        <div class="dom-item"><div class="dom-name">Wireless</div><div class="dom-sub">RF systems</div></div>
+        <div class="dom-item"><div class="dom-name">Optical</div><div class="dom-sub">Photonic links</div></div>
     </div>
 
-    <div class="nda-row">
-        <p>Comprehensive patent portfolio spanning all four domains. Technical details are available under non-disclosure agreement.</p>
-    </div>
+    <div class="nda">Comprehensive patent portfolio. Technical details are available under non-disclosure agreement.</div>
 
     <div class="contact">
         <div class="contact-label">Enquiries</div>
@@ -161,3 +116,4 @@
 </div>
 </body>
 </html>
+
