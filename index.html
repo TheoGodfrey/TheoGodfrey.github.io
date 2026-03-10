@@ -3,86 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ordinal</title>
-    <meta name="description" content="Next-generation semiconductor IP for high-speed communications.">
+    <title>Ordinal | Next-Gen Semiconductor IP</title>
+    <meta name="description" content="Next-generation modulation architectures for high-speed communications.">
+    
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Libre+Franklin:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Libre+Franklin:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
         :root {
-            --bg: #f4f0e6;
-            --text: #2a2016;
-            --dim: #8c8070;
-            --border: #d4cfc0;
-            --accent: #5c2e1a;
+            --bg: #ffffff;
+            --text: #0a0a0a;
+            --dim: #606060;
+            --border: #e0e0e0;
+            --accent: #1976D2;      /* Primary Rank */
             --serif: 'Crimson Pro', Georgia, serif;
             --sans: 'Libre Franklin', sans-serif;
         }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { background: var(--bg); color: var(--text); font-family: var(--sans); min-height: 100vh; -webkit-font-smoothing: antialiased; }
 
-        .page { max-width: 620px; margin: 0 auto; padding: 4rem 2.5rem; min-height: 100vh; display: flex; flex-direction: column; }
+        .page { max-width: 680px; margin: 0 auto; padding: 4rem 2.5rem; min-height: 100vh; display: flex; flex-direction: column; }
 
-        header { margin-bottom: 8vh; display: flex; justify-content: space-between; align-items: baseline; }
-        .wordmark { font-family: var(--serif); font-size: 1.25rem; font-weight: 600; letter-spacing: 0.02em; color: var(--text); }
-        .header-right a { font-size: 0.6875rem; font-weight: 400; color: var(--dim); text-decoration: none; letter-spacing: 0.02em; transition: color 0.3s; }
+        header { margin-bottom: 8vh; display: flex; justify-content: space-between; align-items: center; }
+
+        .brand-block { display: flex; align-items: center; gap: 1rem; text-decoration: none; }
+        .ordinal-icon { width: 36px; height: auto; display: block; }
+
+        .wordmark { font-family: var(--serif); font-size: 1.6rem; font-weight: 600; letter-spacing: -0.01em; color: var(--text); }
+        .header-right a { font-size: 0.75rem; font-weight: 600; color: var(--dim); text-decoration: none; text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.2s; }
         .header-right a:hover { color: var(--accent); }
 
-        .hero { margin-bottom: 3rem; }
+        .hero { margin-bottom: 3.5rem; }
         .hero-eyebrow {
-            font-size: 0.625rem; font-weight: 500; letter-spacing: 0.2em;
-            text-transform: uppercase; color: var(--dim); margin-bottom: 1.25rem;
+            font-size: 0.65rem; font-weight: 700; letter-spacing: 0.18em;
+            text-transform: uppercase; color: var(--accent); margin-bottom: 1.5rem;
         }
         .hero h1 {
-            font-family: var(--serif); font-size: clamp(1.875rem, 4.5vw, 2.75rem);
-            font-weight: 300; line-height: 1.35; color: var(--text);
+            font-family: var(--serif); font-size: clamp(2.25rem, 6vw, 3.5rem);
+            font-weight: 300; line-height: 1.1; color: var(--text); letter-spacing: -0.02em;
         }
-        .hero h1 em { font-style: italic; color: var(--accent); }
+        .hero h1 em { font-style: italic; color: #999; font-weight: 300; }
 
-        .rule { height: 1px; background: var(--border); margin: 0 0 2.5rem; }
+        .rule { height: 1px; background: var(--border); margin: 0 0 3.5rem; }
 
-        .body-text { margin-bottom: 2.5rem; }
+        .body-text { margin-bottom: 3.5rem; }
         .body-text p {
-            font-family: var(--serif); font-size: 1rem; font-weight: 300;
-            line-height: 1.85; color: #4a3f32; margin-bottom: 1rem;
+            font-family: var(--serif); font-size: 1.25rem; font-weight: 300;
+            line-height: 1.65; color: #1a1a1a; margin-bottom: 1.5rem;
         }
 
         .domains {
-            display: flex; justify-content: space-between; flex-wrap: wrap;
-            padding: 1.5rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
-            margin-bottom: 2.5rem; gap: 1rem;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            padding: 2.5rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+            margin-bottom: 3.5rem; gap: 2rem;
         }
-        .dom-item { text-align: center; flex: 1; min-width: 100px; }
-        .dom-name { font-family: var(--serif); font-size: 1.0625rem; font-weight: 400; color: var(--text); }
-        .dom-sub { font-size: 0.625rem; font-weight: 300; color: var(--dim); margin-top: 0.1rem; letter-spacing: 0.04em; }
+        .dom-item { text-align: left; }
+        .dom-name { font-size: 0.8rem; font-weight: 700; color: var(--text); text-transform: uppercase; letter-spacing: 0.08em; }
+        .dom-sub { font-size: 0.75rem; font-weight: 400; color: var(--dim); margin-top: 0.4rem; line-height: 1.4; }
 
         .nda {
-            font-family: var(--serif); font-size: 0.9375rem; font-weight: 300;
-            font-style: italic; color: var(--dim); padding-left: 1.25rem;
-            border-left: 2px solid var(--accent); margin-bottom: 3.5rem;
-            line-height: 1.6;
+            font-family: var(--serif); font-size: 1.1rem; font-weight: 400;
+            color: #444; padding: 1.5rem 2rem;
+            background: #fcfcfc; border-left: 4px solid var(--accent);
+            margin-bottom: 4rem; line-height: 1.6;
         }
 
-        .contact { margin-bottom: 4rem; }
+        .contact { margin-bottom: 5rem; }
         .contact-label {
-            font-size: 0.625rem; font-weight: 500; letter-spacing: 0.2em;
-            text-transform: uppercase; color: var(--dim); margin-bottom: 0.5rem;
+            font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em;
+            text-transform: uppercase; color: var(--dim); margin-bottom: 0.75rem;
         }
         .contact a {
-            font-family: var(--serif); font-size: 1.125rem; font-weight: 400;
-            color: var(--accent); text-decoration: none;
+            font-family: var(--serif); font-size: 1.75rem; font-weight: 400;
+            color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
         }
-        .contact a:hover { text-decoration: underline; }
+        .contact a:hover { border-bottom-color: var(--accent); }
 
-        footer { margin-top: auto; padding-top: 1.25rem; border-top: 1px solid var(--border); }
-        .legal { font-size: 0.625rem; font-weight: 300; color: var(--dim); line-height: 1.8; }
+        footer { margin-top: auto; padding-top: 2rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: flex-end; }
+        .legal { font-size: 0.65rem; font-weight: 500; color: #aaa; letter-spacing: 0.03em; }
 
-        @media (max-width: 480px) { .page { padding: 2.5rem 1.5rem; } }
+        @media (max-width: 480px) { .page { padding: 3rem 1.5rem; } .domains { grid-template-columns: 1fr 1fr; } }
     </style>
 </head>
 <body>
 <div class="page">
     <header>
-        <div class="wordmark">Ordinal</div>
+        <div class="brand-block">
+            <img src="favicon.svg" alt="Ordinal Symbol Library" class="ordinal-icon">
+            <div class="wordmark">Ordinal</div>
+        </div>
         <div class="header-right"><a href="mailto:info@ordinal.science">Contact</a></div>
     </header>
 
@@ -95,24 +108,29 @@
 
     <div class="body-text">
         <p>Ordinal is a UK-based semiconductor IP company developing novel modulation architectures for wired, wireless, and optical communication systems.</p>
-        <p>Our technology encodes information using structural properties of signals rather than absolute amplitudes — enabling fundamental improvements in energy efficiency, latency, and robustness across multiple physical domains.</p>
+        <p>Our technology encodes information using <strong>structural properties</strong> of signals rather than absolute amplitudes — enabling fundamental improvements in energy efficiency, latency, and robustness across multiple physical domains.</p>
     </div>
 
     <div class="domains">
-        <div class="dom-item"><div class="dom-name">SerDes</div><div class="dom-sub">Wired interconnect</div></div>
-        <div class="dom-item"><div class="dom-name">IoT</div><div class="dom-sub">Low-power wireless</div></div>
-        <div class="dom-item"><div class="dom-name">Wireless</div><div class="dom-sub">RF systems</div></div>
-        <div class="dom-item"><div class="dom-name">Optical</div><div class="dom-sub">Photonic links</div></div>
+        <div class="dom-item"><div class="dom-name">SerDes</div><div class="dom-sub">Wired chiplet interconnect</div></div>
+        <div class="dom-item"><div class="dom-name">IoT</div><div class="dom-sub">Low-power edge wireless</div></div>
+        <div class="dom-item"><div class="dom-name">Wireless</div><div class="dom-sub">Carrier-grade RF systems</div></div>
+        <div class="dom-item"><div class="dom-name">Optical</div><div class="dom-sub">Short-reach photonic links</div></div>
     </div>
 
-    <div class="nda">Comprehensive patent portfolio. Technical details are available under non-disclosure agreement.</div>
+    <div class="nda">
+        Comprehensive patent portfolio. Detailed technical specifications and simulation data for 112G+ links are available under non-disclosure agreement.
+    </div>
 
     <div class="contact">
         <div class="contact-label">Enquiries</div>
         <a href="mailto:info@ordinal.science">info@ordinal.science</a>
     </div>
 
-    <footer><div class="legal">Ordinal Ltd · Registered in England and Wales · Company No. XXXXXXXX · © 2025</div></footer>
+    <footer>
+        <div class="legal">Ordinal Ltd · Registered in England and Wales</div>
+        <div class="legal">© 2026</div>
+    </footer>
 </div>
 </body>
 </html>
