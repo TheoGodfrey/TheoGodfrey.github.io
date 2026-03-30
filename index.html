@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chadlington Climate Change and Biodiversity Action Group</title>
     <style>
-        /* Exact color matching and styles from your screenshot */
         :root {
             --bg-color: #e6e4de; 
             --link-green: #29a366; 
@@ -36,7 +35,6 @@
             border-bottom: 1px solid #ccc;
         }
 
-        /* Dark overlay for text readability */
         .hero-banner::before {
             content: "";
             position: absolute;
@@ -54,7 +52,6 @@
             padding: 0 20px;
         }
 
-        /* Main Content Container */
         .container {
             max-width: 1000px;
             margin: 50px auto;
@@ -70,7 +67,6 @@
         }
 
         .grid-item {
-            width: 100%;
             aspect-ratio: 1.45 / 1;
             overflow: hidden;
             background: #ccc;
@@ -83,8 +79,8 @@
             display: block;
         }
 
-        /* --- Land App Map Embed Section --- */
-        .map-demo-section {
+        /* --- THE IFRAME MAP SECTION --- */
+        .map-section {
             margin-bottom: 60px;
             text-align: center;
         }
@@ -97,87 +93,63 @@
             display: block;
         }
 
-        .map-container {
+        .map-wrapper {
             position: relative;
             width: 100%;
             padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
             height: 0;
-            overflow: hidden;
+            background: #d1cfc9; /* Background while loading */
             border-radius: 4px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            background: #d1cfc9;
             border: 1px solid #bbb;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
 
-        .map-container iframe {
+        /* The actual Iframe */
+        .map-wrapper iframe {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             border: 0;
+            z-index: 2;
         }
 
-        /* 4-Column Text Links */
+        /* Optional: A simple loading spinner behind the iframe */
+        .loader {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid var(--link-green);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            z-index: 1;
+        }
+
+        @keyframes spin {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        /* Navigation Links Grid */
         .links-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 20px;
             text-align: center;
-            margin-bottom: 40px;
         }
 
-        .link-box h2 {
-            font-size: 22px;
-            margin: 0 0 10px 0;
-        }
+        .link-box h2 { font-size: 22px; margin: 0 0 10px 0; }
+        .link-box a { color: var(--link-green); text-decoration: underline; }
+        .link-box p { font-size: 13px; color: var(--text-grey); margin: 0; }
 
-        .link-box a {
-            color: var(--link-green);
-            text-decoration: underline;
-            font-weight: normal;
-        }
-
-        .link-box p {
-            font-size: 13px;
-            color: var(--text-grey);
-            margin: 0;
-            padding: 0 5px;
-        }
-
-        /* Footer Interest Topics */
-        .footer-section {
-            text-align: left;
-            margin-top: 60px;
-        }
-
-        .footer-section h3 {
-            font-size: 22px;
-            margin-bottom: 15px;
-        }
-
-        .footer-section h3 a {
-            color: var(--link-green);
-            text-decoration: underline;
-            font-weight: normal;
-        }
-
-        .sub-link {
-            display: block;
-            margin-left: 20px;
-            font-size: 13px;
-        }
-
-        .sub-link a {
-            color: var(--link-green);
-            text-decoration: underline;
-        }
-
-        /* Responsive Fix for Mobile */
         @media (max-width: 768px) {
-            .image-grid, .links-grid {
-                grid-template-columns: 1fr 1fr;
-            }
+            .image-grid, .links-grid { grid-template-columns: 1fr 1fr; }
             .hero-title { font-size: 28px; }
         }
     </style>
@@ -185,24 +157,25 @@
 <body>
 
     <header class="hero-banner">
-        <h1 class="hero-title">Chadlington Climate Change and<br> Biodiversity Action Group</h1>
+        <h1 class="hero-title">Chadlington Climate Change and Biodiversity Action Group</h1>
     </header>
 
     <div class="container">
         
         <div class="image-grid">
-            <div class="grid-item"><img src="https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?w=400" alt="Landscape 1"></div>
-            <div class="grid-item"><img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400" alt="Landscape 2"></div>
-            <div class="grid-item"><img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=400" alt="Landscape 3"></div>
-            <div class="grid-item"><img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?w=400" alt="Landscape 4"></div>
+            <div class="grid-item"><img src="https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?w=400"></div>
+            <div class="grid-item"><img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400"></div>
+            <div class="grid-item"><img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=400"></div>
+            <div class="grid-item"><img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?w=400"></div>
         </div>
 
-        <section class="map-demo-section">
-            <span class="map-header">Interactive Land Map Preview</span>
-            <div class="map-container">
+        <section class="map-section">
+            <span class="map-header">Live Interactive Map</span>
+            <div class="map-wrapper">
+                <div class="loader"></div>
                 <iframe 
                     src="https://go.thelandapp.com/map/67308830e55c2e69ddce6905/embed" 
-                    title="Chadlington Land App Map"
+                    title="Chadlington Map Tool"
                     loading="lazy"
                     allowfullscreen>
                 </iframe>
@@ -212,7 +185,7 @@
         <div class="links-grid">
             <div class="link-box">
                 <h2><a href="#">Events</a></h2>
-                <p>Upcoming and past events about our plans, progress and expert speakers. All are welcome.</p>
+                <p>Upcoming and past events. All are welcome.</p>
             </div>
             <div class="link-box">
                 <h2><a href="#">About</a></h2>
@@ -220,18 +193,11 @@
             </div>
             <div class="link-box">
                 <h2><a href="#">Butterflies</a></h2>
-                <p>Common butterflies in and around Chadlington.</p>
+                <p>Common butterflies in Chadlington.</p>
             </div>
             <div class="link-box">
                 <h2><a href="#">LandApp</a></h2>
-                <p>Recording and mapping environmental and biodiversity elements in and around Chadlington</p>
-            </div>
-        </div>
-
-        <div class="footer-section">
-            <h3><a href="#">Other Interest Topics</a></h3>
-            <div class="sub-link">
-                <a href="https://evenloderiverwaterquality.co.uk/" target="_blank">Evenlode River Water Quality</a>
+                <p>Mapping biodiversity in Chadlington.</p>
             </div>
         </div>
 
