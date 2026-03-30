@@ -1,1 +1,223 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chadlington Climate Action Group</title>
+    <style>
+        /* General page styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0eee8; /* Light beige/grey background */
+            color: #333;
+        }
+
+        /* Hero section (Header) */
+        .hero {
+            position: relative;
+            height: 300px; /* Adjust height as needed */
+            background-color: #555; /* Fallback color */
+            background-image: url('placeholder_hero.jpg'); /* Placeholder for the top tree banner */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        /* Overlay to make text readable */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4); /* Dark overlay */
+        }
+
+        .hero-title {
+            color: white;
+            font-size: 3em;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+            z-index: 1; /* Keep text above overlay */
+            line-height: 1.2;
+        }
+
+        /* Main content area containing image grid and links */
+        .main-content {
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        /* 4-image grid */
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto 60px; /* Spacing below grid */
+        }
+
+        .grid-item {
+            aspect-ratio: 16 / 11; /* Based on the image sizes, slightly wider than square */
+            overflow: hidden;
+            border: 1px solid #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .grid-item img {
+            max-width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* For placeholder look */
+        .placeholder {
+            background-color: #e0e0e0;
+            color: #888;
+            font-size: 1.2em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Links section below images */
+        .links-section {
+            display: flex;
+            justify-content: space-around;
+            max-width: 1100px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .link-block {
+            width: 22%; /* Adjust block width */
+            text-align: center;
+        }
+
+        /* Specific link title styles (green, centered, large) */
+        .link-title {
+            color: #1b9a5e; /* Green color close to the screenshot */
+            text-decoration: underline;
+            font-size: 1.6em;
+            font-weight: normal;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        /* Descriptive text below link title (centered, smaller) */
+        .link-description {
+            font-size: 0.9em;
+            color: #444;
+            line-height: 1.4;
+            display: block;
+        }
+
+        /* "Other Interest Topics" section at the bottom-left */
+        .other-links-container {
+            width: 100%;
+            max-width: 1100px;
+            margin: 40px auto 0;
+            padding-left: 10%; /* Adjust to match alignment */
+            text-align: left;
+        }
+
+        .other-topics-title {
+            color: #1b9a5e; /* Matching green for consistency */
+            text-decoration: underline;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        /* Description for the lower section (left-aligned) */
+        .other-description {
+            font-size: 0.9em;
+            margin-left: 10px; /* Spacing for the bullet-like appearance */
+        }
+
+        .other-description a {
+            color: #1b9a5e; /* Matching green for link text */
+            text-decoration: underline;
+        }
+
+        /* --- Placeholder Image Definitions --- */
+        /* You will need to create four small images and one large one (or use placeholder URLs) */
+        
+        #item1 { background-image: url('placeholder_tree_1.jpg'); }
+        #item2 { background-image: url('placeholder_tree_2.jpg'); }
+        #item3 { background-image: url('placeholder_tree_3.jpg'); }
+        #item4 { background-image: url('placeholder_tree_4.jpg'); }
+
+        .placeholder-image {
+            background-size: cover;
+            background-position: center;
+            width: 100%;
+            height: 100%;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <h1 class="hero-title">Chadlington Climate Change and<br> Biodiversity Action Group</h1>
+    </header>
+
+    <main class="main-content">
+        <section class="image-grid">
+            <div class="grid-item">
+                <div class="placeholder-image" id="item1"></div>
+            </div>
+            <div class="grid-item">
+                <div class="placeholder-image" id="item2"></div>
+            </div>
+            <div class="grid-item">
+                <div class="placeholder-image" id="item3"></div>
+            </div>
+            <div class="grid-item">
+                <div class="placeholder-image" id="item4"></div>
+            </div>
+        </section>
+
+        <section class="links-section">
+            <div class="link-block">
+                <a href="#" class="link-title">Events</a>
+                <span class="link-description">Upcoming and past events about our plans,<br> progress and expert speakers. All are welcome.</span>
+            </div>
+            <div class="link-block">
+                <a href="#" class="link-title">About</a>
+                <span class="link-description">Who we are and what our mission is.</span>
+            </div>
+            <div class="link-block">
+                <a href="#" class="link-title">Butterflies</a>
+                <span class="link-description">Common butterflies in and around Chadlington.</span>
+            </div>
+            <div class="link-block">
+                <a href="#" class="link-title">LandApp</a>
+                <span class="link-description">Recording and mapping environmental and<br> biodiversity elements in and around<br> Chadlington</span>
+            </div>
+        </section>
+
+        <section class="other-links-container">
+            <a href="#" class="other-topics-title">Other Interest Topics</a>
+            <p class="other-description">
+                &bull; <a href="https://evenloderiverwaterquality.co.uk/" target="_blank">Evenlode River Water Quality</a>
+            </p>
+        </section>
+    </main>
+
+</body>
+</html>
