@@ -3,19 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ordinal | Next-Gen Semiconductor IP</title>
-    <meta name="description" content="Next-generation modulation architectures for high-speed communications.">
-    
+    <title>Ordinal Research</title>
+    <meta name="description" content="Ordinal Research develops modulation and coding for radio links that have to keep working when the signal is very weak.">
+    <link rel="canonical" href="https://ordinal.science/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Ordinal Research">
+    <meta property="og:title" content="Ordinal Research">
+    <meta property="og:description" content="Radio links for very weak signals.">
+    <meta property="og:url" content="https://ordinal.science/">
+
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Libre+Franklin:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600&family=Libre+Franklin:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <style>
         :root {
             --bg: #ffffff;
             --text: #0a0a0a;
+            --body: #1a1a1a;
             --dim: #606060;
+            --faint: #767676;
             --border: #e0e0e0;
             --accent: #1976D2;
             --serif: 'Crimson Pro', Georgia, serif;
@@ -23,73 +33,48 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            background: var(--bg); 
-            color: var(--text); 
-            font-family: var(--sans); 
-            min-height: 100vh; 
-            -webkit-font-smoothing: antialiased; 
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: var(--sans);
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
 
-        /* The central "Memo" column - restored and perfectly proportioned */
-        .page { 
-            max-width: 760px; /* Slightly wider than 680px for a modern feel, but still highly readable */
-            margin: 0 auto; 
-            padding: 5rem 2rem; 
-            min-height: 100vh; 
-            display: flex; 
-            flex-direction: column; 
+        .page {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
         header { margin-bottom: 6rem; display: flex; justify-content: space-between; align-items: center; }
 
         .brand-block { display: flex; align-items: center; gap: 1rem; text-decoration: none; }
         .ordinal-icon { width: 44px; height: auto; display: block; }
-
         .wordmark { font-family: var(--serif); font-size: 1.6rem; font-weight: 600; letter-spacing: -0.01em; color: var(--text); }
-        .header-right a { font-size: 0.75rem; font-weight: 600; color: var(--dim); text-decoration: none; text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.2s; }
+
+        .header-right a {
+            font-size: 0.75rem; font-weight: 600; color: var(--dim); text-decoration: none;
+            text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.2s;
+        }
         .header-right a:hover { color: var(--accent); }
 
         .hero { margin-bottom: 3.5rem; }
-        .hero-eyebrow {
-            font-size: 0.65rem; font-weight: 700; letter-spacing: 0.18em;
-            text-transform: uppercase; color: var(--accent); margin-bottom: 1.5rem;
-        }
         .hero h1 {
             font-family: var(--serif); font-size: clamp(2.25rem, 5vw, 3.5rem);
             font-weight: 300; line-height: 1.15; color: var(--text); letter-spacing: -0.02em;
         }
-        .hero h1 em { font-style: italic; color: #888; font-weight: 300; }
 
         .rule { height: 1px; background: var(--border); margin: 0 0 3.5rem; }
 
         .body-text { margin-bottom: 4rem; }
         .body-text p {
-            font-family: var(--serif); font-size: 1.3rem; font-weight: 300;
-            line-height: 1.6; color: #1a1a1a; margin-bottom: 1.5rem;
-        }
-        .body-text strong { font-weight: 600; }
-
-        /* The 4-column grid creates high visual tension against the serif text */
-        .domains {
-            display: grid; 
-            grid-template-columns: repeat(4, 1fr);
-            padding: 2.5rem 0; 
-            border-top: 1px solid var(--border); 
-            border-bottom: 1px solid var(--border);
-            margin-bottom: 4rem; 
-            gap: 1.5rem;
-        }
-        .dom-item { text-align: left; }
-        .dom-name { font-size: 0.75rem; font-weight: 700; color: var(--text); text-transform: uppercase; letter-spacing: 0.08em; }
-        .dom-sub { font-size: 0.7rem; font-weight: 400; color: var(--dim); margin-top: 0.5rem; line-height: 1.4; }
-
-        .nda {
-            font-family: var(--serif); font-size: 1.15rem; font-weight: 400;
-            color: #333; padding: 1.5rem 2rem;
-            background: #f8f9fa; border-left: 3px solid var(--accent);
-            margin-bottom: 5rem; line-height: 1.6;
+            font-family: var(--serif); font-size: 1.3rem; font-weight: 400;
+            line-height: 1.6; color: var(--body); margin-bottom: 1.5rem;
         }
 
         .contact { margin-bottom: 5rem; }
@@ -104,56 +89,52 @@
         }
         .contact a:hover { border-bottom-color: var(--accent); }
 
-        footer { margin-top: auto; padding-top: 2rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: flex-end; }
-        .legal { font-size: 0.7rem; font-weight: 500; color: #999; letter-spacing: 0.03em; }
+        footer {
+            margin-top: auto; padding-top: 2rem; border-top: 1px solid var(--border);
+            display: flex; flex-wrap: wrap; gap: 0.5rem 2rem;
+            justify-content: space-between; align-items: flex-end;
+        }
+        .legal { font-size: 0.7rem; font-weight: 500; color: var(--faint); letter-spacing: 0.03em; line-height: 1.5; }
 
-        @media (max-width: 640px) { 
-            .page { padding: 3rem 1.5rem; } 
-            .domains { grid-template-columns: repeat(2, 1fr); gap: 2rem 1rem; }
+        @media (max-width: 640px) {
+            .page { padding: 3rem 1.5rem; }
+            header { margin-bottom: 4rem; }
             .hero h1 { font-size: 2.25rem; }
+            .contact a { font-size: 1.4rem; }
         }
     </style>
 </head>
 <body>
 <div class="page">
     <header>
-        <div class="brand-block">
-            <img src="favicon.svg" alt="Ordinal Symbol Library" class="ordinal-icon">
-            <div class="wordmark">Ordinal</div>
-        </div>
-        <div class="header-right"><a href="mailto:info@ordinal.science">Contact</a></div>
+        <a class="brand-block" href="/">
+            <img src="favicon.svg" alt="" class="ordinal-icon">
+            <span class="wordmark">Ordinal</span>
+        </a>
+        <div class="header-right"><a href="mailto:theo@ordinal.science">Contact</a></div>
     </header>
 
-    <section class="hero">
-        <div class="hero-eyebrow">Semiconductor IP</div>
-        <h1>Next-generation modulation architectures for <em>high-speed communications</em></h1>
-    </section>
+    <main>
+        <section class="hero">
+            <h1>Radio links for very weak signals.</h1>
+        </section>
 
-    <div class="rule"></div>
+        <div class="rule"></div>
 
-    <div class="body-text">
-        <p>Ordinal is a UK-based semiconductor IP company developing novel modulation architectures for wired, wireless, and optical communication systems.</p>
-        <p>Our technology encodes information using <strong>structural properties</strong> of signals rather than absolute amplitudes — enabling fundamental improvements in energy efficiency, latency, and robustness across multiple physical domains.</p>
-    </div>
+        <div class="body-text">
+            <p>Ordinal Research is a small UK research company. We develop modulation and coding for radio links that have to keep working when the signal is very weak, at long range and low power.</p>
+            <p>Our results so far come from simulation and over-the-air tests on development radios. We'll publish technical results once they have been independently measured.</p>
+            <p>Ordinal was founded in 2026 by Theo Godfrey.</p>
+        </div>
 
-    <div class="domains">
-        <div class="dom-item"><div class="dom-name">SerDes</div><div class="dom-sub">Wired chiplet interconnect</div></div>
-        <div class="dom-item"><div class="dom-name">IoT</div><div class="dom-sub">Low-power edge wireless</div></div>
-        <div class="dom-item"><div class="dom-name">Wireless</div><div class="dom-sub">Carrier-grade RF systems</div></div>
-        <div class="dom-item"><div class="dom-name">Optical</div><div class="dom-sub">Short-reach photonic links</div></div>
-    </div>
-
-    <div class="nda">
-        Detailed technical specifications and simulation data for 112G+ links are available under non-disclosure agreement.
-    </div>
-
-    <div class="contact">
-        <div class="contact-label">Enquiries</div>
-        <a href="mailto:info@ordinal.science">info@ordinal.science</a>
-    </div>
+        <div class="contact">
+            <div class="contact-label">Contact</div>
+            <a href="mailto:theo@ordinal.science">theo@ordinal.science</a>
+        </div>
+    </main>
 
     <footer>
-        <div class="legal">Ordinal Research Limited · Registered 17019062</div>
+        <div class="legal">Ordinal Research Limited · Registered in England and Wales, company number 17019062</div>
         <div class="legal">© 2026</div>
     </footer>
 </div>
